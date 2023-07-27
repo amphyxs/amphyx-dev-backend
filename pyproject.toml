@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "amphyx-dev-backend"
+version = "0.1.0"
+description = "Backend of amphyx.dev"
+authors = ["amphyxs <amphyxs@gmail.com>"]
+readme = "README.md"
+packages = [{include = "amphyx_dev_backend"}]
+
+[tool.poetry.dependencies]
+python = "3.9.*"
+asgiref = "3.7.2"
+cffi = "1.15.1"
+cryptography = "41.0.2"
+django = "<4.2"
+django-cors-headers = "4.2.0"
+djangorestframework = "3.14.0"
+psycopg = "3.1.9"
+pycparser = "2.21"
+pymysql = "1.1.0"
+python-dotenv = "1.0.0"
+pytz = "2023.3"
+sqlparse = "0.4.4"
+typing-extensions = "4.7.1"
+pillow = "^10.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
