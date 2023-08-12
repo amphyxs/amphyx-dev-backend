@@ -1,7 +1,8 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from apps.personal_info import views
 
-urlpatterns = [
-    path('', views.TestView.as_view(), name='index'),
-]
+router = DefaultRouter()
+router.register(r'contact-links', views.ContactLinkViewSet)
+
+urlpatterns = router.urls

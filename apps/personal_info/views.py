@@ -1,14 +1,11 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
+
+from apps.personal_info.models import ContactLink
+from apps.personal_info.serializers import ContactLinkSerializer
 
 
-class TestView(APIView):
+class ContactLinkViewSet(ModelViewSet):
+    """Viewset для просмотра и редактирования списка ссылок-контактов."""
 
-    def post(self, request, *args, **kwargs):
-        print(self.request.body)
-        response_text = 'Ohio'
-        return Response(response_text, status=status.HTTP_200_OK)
-
-    def get(self, request, *args, **kwargs):
-        return Response('Works', status=status.HTTP_200_OK)
+    queryset = ContactLink.objects.all()
+    serializer_class = ContactLinkSerializer
