@@ -6,3 +6,4 @@
 deploy/invoke-build.sh
 con
 static/
+docs/
