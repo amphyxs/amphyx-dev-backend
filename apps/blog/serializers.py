@@ -8,6 +8,7 @@ class BlogPostShortSerializer(serializers.ModelSerializer):
 
     created_at = serializers.DateTimeField(format='%d.%m.%Y %H:%M')
     updated_at = serializers.DateTimeField(format='%d.%m.%Y %H:%M')
+    tags = serializers.StringRelatedField(many=True)
 
     class Meta:
         fields = (
@@ -16,15 +17,13 @@ class BlogPostShortSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'author',
+            'tags',
         )
         model = BlogPost
 
 
-class BlogPostSerializer(serializers.ModelSerializer):
+class BlogPostSerializer(BlogPostShortSerializer):
     """Сериализатор постов блога с полным набором полей."""
-
-    created_at = serializers.DateTimeField(format='%d.%m.%Y %H:%M')
-    updated_at = serializers.DateTimeField(format='%d.%m.%Y %H:%M')
 
     class Meta:
         fields = '__all__'

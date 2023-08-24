@@ -9,6 +9,9 @@ class BlogPostTag(models.Model):
 
     name = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class BlogPost(models.Model):
     """Пост в блоге."""
@@ -19,3 +22,6 @@ class BlogPost(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(to=BlogPostTag)
+
+    def __str__(self) -> str:
+        return self.title
