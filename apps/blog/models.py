@@ -4,6 +4,12 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class BlogPostTag(models.Model):
+    """Тег для поста в блоге."""
+
+    name = models.CharField(max_length=50)
+
+
 class BlogPost(models.Model):
     """Пост в блоге."""
 
@@ -12,3 +18,4 @@ class BlogPost(models.Model):
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    tags = models.ManyToManyField(to=BlogPostTag)
