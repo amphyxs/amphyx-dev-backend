@@ -11,6 +11,7 @@ class BlogPostViewSet(viewsets.ModelViewSet):
 
     permission_classes = [IsSuperuser | IsAdminUser | ReadOnly]
     queryset = BlogPost.objects.all()
+    lookup_field = 'slug'
 
     def list(self, *args, **kwargs):
         self.serializer_class = BlogPostShortSerializer

@@ -9,6 +9,10 @@ class BlogPostShortSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(format='%d.%m.%Y %H:%M')
     updated_at = serializers.DateTimeField(format='%d.%m.%Y %H:%M')
     tags = serializers.StringRelatedField(many=True)
+    lookup_field = 'slug'
+    extra_kwargs = {
+        'url': {'lookup_field': 'slug'}
+    }
 
     class Meta:
         fields = (
@@ -18,6 +22,7 @@ class BlogPostShortSerializer(serializers.ModelSerializer):
             'updated_at',
             'author',
             'tags',
+            'slug',
         )
         model = BlogPost
 
