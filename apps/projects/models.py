@@ -15,11 +15,17 @@ class ProjectTool(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50, choices=TOOLS_TYPES)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class ProjectType(models.Model):
     """Тип проекта."""
 
     name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Project(models.Model):
@@ -33,3 +39,6 @@ class Project(models.Model):
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     key_points = models.TextField()
+
+    def __str__(self) -> str:
+        return self.name
