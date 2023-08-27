@@ -34,6 +34,7 @@ class Project(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     link = models.URLField()
+    github_link = models.URLField(null=True, blank=True)
     stack = models.ManyToManyField(to=ProjectTool)
     type = models.ForeignKey(to=ProjectType, on_delete=models.PROTECT)
     start_date = models.DateField(null=True, blank=True)
