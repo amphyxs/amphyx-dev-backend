@@ -14,4 +14,4 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['start_date']
-    ordering = ['start_date']
+    ordering = ['-start_date']
